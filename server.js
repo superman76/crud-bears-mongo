@@ -33,13 +33,13 @@ router.route('/bears')
 	bear.gender = req.body.gender;
 
 	bear.save(function(err, bear) {
-		if(err) {
-			console.log(err)// do something
-		} else {
-			res.json(bear)// do something
-		}
+			if(err) {
+				console.log(err)// do something
+			} else {
+				res.json(bear)// do something
+			}
+		})
 	})
-})
 
 	.get(function(req, res) {
 		Bear.find(function(err, bears){
@@ -50,9 +50,17 @@ router.route('/bears')
 			}
 		})
 	});
-	// res.json({title: "I am trying to GET"})
 
-
+router.route('/bears/:bear_id')
+	.get(function(req, res){
+		Bear.findById(req.params.bear_id, function(err, bear) {
+			if(err){
+				console.log(err);
+			} else {
+				res.json(bear);
+			}
+		})
+	})
 
 
 app.use('/api', router);
