@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-var bear = require('./models/bear');
+var Bear = require('./models/bear');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/animals');
@@ -22,6 +22,32 @@ router.use(function(req, res, next) {
 router.get('/', function(req, res) {
 	res.json({ message: 'hooray! welcome to our API!'});
 });
+
+router.route('/bears')
+	.post(function(req, res) {
+
+	var bear = new Bear();
+
+	bear.name = req.body.name;
+	bear.age = req.body.age;
+	bear.gender = req.body.gender;
+
+	bear.save(function(err, bear) {
+		if(err) {
+			console.log(err)// do something
+		} else {
+			res.json(bear)// do something
+		}
+	})
+})
+
+	.get(function(req, res) {
+
+	res.json({title: "I am trying to GET"})
+	})
+
+
+
 
 app.use('/api', router);
 
