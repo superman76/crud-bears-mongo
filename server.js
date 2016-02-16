@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+var bear = require('./models/bear');
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/animals');
 
