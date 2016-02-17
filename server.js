@@ -15,8 +15,15 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
-	res.render('index')
-})
+	res.render('index', {title: "Donde esta?"})
+});
+	// app.set & app.get use 
+	// with the res.render('index') you can also pass other objects
+	// in such as {title: "hello world"}
+
+app.get('/about', function(req, res){
+	res.render('about')
+});
 
 var port = process.env.PORT || 8080;
 
