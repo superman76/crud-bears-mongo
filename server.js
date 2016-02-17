@@ -30,7 +30,13 @@ app.get('/about', function(req, res){
 });
 
 app.get('/bears', function(req, res){
-	res.render('bears', {title: "Even More BEARS"})
+	Bear.find(function(err, bears){
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('bears', { bears: bears } );
+		}
+	})
 });
 
 var port = process.env.PORT || 8080;
