@@ -12,6 +12,12 @@ var bearRouter = require('./routes/bears');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res){
+	res.render('index')
+})
+
 var port = process.env.PORT || 8080;
 
 var router = express.Router();

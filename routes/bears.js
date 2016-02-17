@@ -1,7 +1,8 @@
 var express = require('express');
 	
 var router = express.Router();
-	// sets up router
+	// created a new object which is a router, to handle our 
+	// bear stuff
 
 var Bear = require('../models/bear');
 	// the 2 periods indicate to go up 2 directory levels
