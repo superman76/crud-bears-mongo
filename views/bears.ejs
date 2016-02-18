@@ -10,7 +10,7 @@
 
 <div class="jumbotron">
 	<div class="container">
-		<h1>My Bears</h1>
+		<h1 align="center">My Bears</h1>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -25,11 +25,16 @@
 				  	<td> <%= bears[i].name %> </td>
 				  	<td> <%= bears[i].age %> </td>
 				  	<td> <%= bears[i].gender %> </td>
+				  	<td>
+				  		<button data-id="<%= bears[i].id %>" class="btn btn-warning deleteBear" type="button">
+				  			Delete
+				  		</button> 
+				  	</td>
 				  </tr>
 				<% } %>
 			</tbody>			
 		</table>
-
+<div class="col-md-6">
 		<p>
 			<a href="/" class="btn btn-primary btn-lg">HOME</a>
 		</p>
@@ -37,7 +42,30 @@
 		<p>
 			<a href="/about" class="btn btn-primary btn-lg">About me</a>
 		</p>
+</div>
 	</div>
+</div>
+
+<form action="/api/bears" method="POST" class="form-inline" role="form" align="center">
+
+	<div class="form-group">
+		<label class="sr-only" for=""></label>
+		<input name="name" type="text" class="form-control" id="" placeholder="Name">
+	</div>
+	<div class="form-group">
+		<label class="sr-only" for=""></label>
+		<input name="age" type="text" class="form-control" id="" placeholder="Age">
+	</div>
+	<div class="form-group">
+		<label class="sr-only" for=""></label>
+		<input name="gender" type="text" class="form-control" id="" placeholder="Gender">
+	</div>
+		
+
+	<button data-id="addBear" type="submit" class="btn btn-primary">Submit</button>
+</form>
+	
+
 </div>
 
 			<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
