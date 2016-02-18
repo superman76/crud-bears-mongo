@@ -12,6 +12,10 @@ var bearRouter = require('./routes/bears');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static('public'));
+	// tells us that all these files in this public folder
+	// are static
+
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
