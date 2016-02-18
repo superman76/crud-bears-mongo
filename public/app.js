@@ -46,9 +46,12 @@ var addBear = function(event){
 				  		</button>\
 				  	</td>\
 				  </tr>');
+	  $("#name").val('');
+	  $("#age").val('');
+	  $("#gender").val('');
 })
 
-	alert('you clicked the add bear button');
+	// alert('you clicked the add bear button');
 }
 $('#addBear').on('click', addBear);
 $('.deleteBear').on('click', deleteBear);
