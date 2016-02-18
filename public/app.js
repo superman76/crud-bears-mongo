@@ -21,6 +21,7 @@ var addBear = function(event){
 	var name = $('#name').val();
 	var age = $('#age').val();
 	var gender = $('#gender').val();
+	var $table = $('#bearTable')
 
 	var bear = {};
 	bear.name = name;
@@ -35,6 +36,16 @@ var addBear = function(event){
 		data: bear
 	}).done(function(data) {
 	  console.log("I posted a bear", data);
+
+	  $table.append('<tr data-id=' + data._id + '>\
+				  	<td>' + data.name + '</td>\
+				  	<td>' + data.age + '</td>\
+				  	<td>' + data.gender + '</td>\
+				  	<td><button data-id="<%= bears[i].id %>" class="btn btn-warning deleteBear" type="button">\
+				  			Delete\
+				  		</button>\
+				  	</td>\
+				  </tr>');
 })
 
 	alert('you clicked the add bear button');
