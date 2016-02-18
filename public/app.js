@@ -18,6 +18,25 @@ function deleteBear (event) {
 var addBear = function(event){
 	event.preventDefault();
 
+	var name = $('#name').val();
+	var age = $('#age').val();
+	var gender = $('#gender').val();
+
+	var bear = {};
+	bear.name = name;
+	bear.age = age;
+	bear.gender = gender;
+
+// how to throw this (lines 25-28) to the server
+
+	$.ajax({
+		url: "/api/bears",
+		method: "POST",
+		data: bear
+	}).done(function(data) {
+	  console.log("I posted a bear", data);
+})
+
 	alert('you clicked the add bear button');
 }
 $('#addBear').on('click', addBear);
